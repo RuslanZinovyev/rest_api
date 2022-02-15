@@ -4,12 +4,12 @@ import com.example.rest_api.exception.ClientNotFoundException;
 import com.example.rest_api.model.Client;
 import com.example.rest_api.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/clients")
@@ -23,8 +23,9 @@ public class ClientController {
     }
 
     @GetMapping
-    public List<Client> getClients() {
-        return clientService.findAllClients();
+    public Page<Client> getClients(@RequestParam(value = "page", defaultValue = "0") int page,
+                                   @RequestParam(value = "limit", defaultValue = "5") int limit) {
+        return clientService.findAllClients(page, limit);
     }
 
     @GetMapping("/{id}")

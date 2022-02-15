@@ -3,9 +3,11 @@ package com.example.rest_api.service;
 import com.example.rest_api.model.Client;
 import com.example.rest_api.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service("clientService")
@@ -19,8 +21,10 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public List<Client> findAllClients() {
-        return clientRepository.findAll();
+    public Page<Client> findAllClients(int page, int limit) {
+        Pageable pageable = PageRequest.of(page, limit);
+
+        return clientRepository.findAll(pageable);
     }
 
     @Override

@@ -56,12 +56,42 @@ public class RestApiApplication {
         gomer.setName("Gomer Simpson");
         gomer.setEmail("gomer.simpson@gmail.com");
 
+        Client alex = new Client();
+        alex.setAge(16);
+        alex.setName("Alex Zhidkov");
+        alex.setEmail("alex.zhidkov@gmail.com");
+
+        Client hernan = new Client();
+        hernan.setAge(55);
+        hernan.setName("Hernan Borgos");
+        hernan.setEmail("hernan.borgos@gmail.com");
+
+        Client conor = new Client();
+        conor.setAge(43);
+        conor.setName("Conor Smith");
+        conor.setEmail("conor.smith@gmail.com");
+
+        Client pavel = new Client();
+        pavel.setAge(40);
+        pavel.setName("Pavel Dazuk");
+        pavel.setEmail("pavel.dazuk@gmail.com");
+
+        Client martin = new Client();
+        martin.setAge(32);
+        martin.setName("Martin Car");
+        martin.setEmail("martin.car@gmail.com");
+
         clients.add(john);
         clients.add(ruslan);
         clients.add(oliver);
         clients.add(joel);
         clients.add(patrick);
         clients.add(gomer);
+        clients.add(alex);
+        clients.add(hernan);
+        clients.add(conor);
+        clients.add(pavel);
+        clients.add(martin);
 
         for (Client c :
              clients) {

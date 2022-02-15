@@ -1,13 +1,13 @@
 package com.example.rest_api.service;
 
 import com.example.rest_api.model.Client;
+import org.springframework.data.domain.Page;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface ClientService {
 
-    List<Client> findAllClients();
+    Page<Client> findAllClients(int page, int limit);
 
     Optional<Client> findById(Long id);
 
